@@ -1,6 +1,6 @@
 # redirect
 
-`https://qszyn.github.io/redirect?to={URI}`
+`https://shogit.github.io/redirect?to={URI}`
 
 Don't forget to [encode the URI](https://www.urlencoder.io/)!
 
