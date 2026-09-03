@@ -1,6 +1,6 @@
 # redirect
 
-Cosense（Scrapbox）などから、外部URL・Obsidianディープリンク・ローカルのFinderパスにワンクリックでアクセスするためのリダイレクター。
+Cosense（Scrapbox）などから外部URL・Obsidianディープリンク・ローカルのFinderパスにワンクリックでアクセスするためのリダイレクター
 
 ## 使い方
 

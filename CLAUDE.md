@@ -1,8 +1,8 @@
 # CLAUDE.md — redirect / openfinder プロジェクト
 
 ## 概要
-Cosense（Scrapbox）などから、外部URL・Obsidianディープリンク・**ローカルのFinderパス**にワンクリックでアクセスするための仕組み。
-`https://shogit.github.io/redirect#<target>` を踏むと `main.js` が `<target>` を解釈し、適切な遷移先へリダイレクトする。
+Cosense（Scrapbox）などから外部URL・Obsidianディープリンク・**ローカルのFinderパス**にワンクリックでアクセスするための仕組み
+`https://shogit.github.io/redirect#<target>` を踏むと `main.js` が `<target>` を解釈し、適切な遷移先へリダイレクトする
 
 ## 構成要素
 - **`redirect` リポジトリ**（GitHub Pages, `shogit/redirect`）
@@ -13,10 +13,10 @@ Cosense（Scrapbox）などから、外部URL・Obsidianディープリンク・
   - `openfinder://` スキームを受け取り、Finderで対象パスを開くだけの常駐しないヘルパーアプリ
   - [Platypus](https://sveinbjorn.org/platypus) でシェルスクリプトをラップして作成（Xcode不要）
 
-## 技術的な前提（ハマりどころ）
+## 技術的前提
 - ブラウザは **https ページから `file://` への直接遷移をブロックする**ため、`main.js` から `file://` にリダイレクトしても何も起きない。
-- カスタムURLスキーム（`openfinder://` 等）は外部アプリ起動の確認ダイアログを経由するため通る。→ これを中継させる。
-- `file://` のパスは3スラッシュ表記（`file:///Users/...`）が正しい。Cosense側のリンク生成テンプレートに2スラッシュ（`file://Users/...`）のミスがないか要確認。
+- カスタムURLスキーム（`openfinder://` 等）は外部アプリ起動の確認ダイアログを経由するため通る→これを中継させる
+- `file://` のパスは3スラッシュ表記（`file:///Users/...`）が正しい。Cosense側のリンク生成テンプレートに2スラッシュ（`file://Users/...`）のミスがないか要確認
 - Platypusの **URL Schemes** 設定欄は見当たらないバージョンがある。その場合は Create App 後に Info.plist を XML に変換して `CFBundleURLTypes` を手動追加し、`lsregister -f` で再登録する。
 - Platypus で入力ミスしやすい: `CFBBundleURLTypes`（B が2つ）は無効。`CFBundleURLTypes`（B は1つ）が正しい。
 - 初回起動時のみ「このアプリで開きますか」の確認ダイアログが出る（Chrome/macOSの外部プロトコル許可の仕様、恒久的な回避は不可）。
